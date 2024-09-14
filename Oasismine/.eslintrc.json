@@ -1,0 +1,34 @@
+{
+  "rules": {
+    // https://eslint.org/docs/latest/rules
+    "arrow-body-style": "off", // 화살표 함수 몸체에 괄호를 사용할지 여부
+    "prefer-arrow-callback": "off", // 콜백 함수를 화살표 함수로 작성할지 여부
+    "prettier/prettier": ["error", { "endOfLine": "auto" }], // 윈도우에서 개행문자가 CRLF로 저장되는 것을 막기 위해 추가
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "Boolean": false
+        }
+      }
+    ]
+  },
+  "extends": [
+    "prettier", // prettier 규칙 적용
+    "plugin:@typescript-eslint/eslint-recommended", // eslint-plugin-prettier와 eslint-config-prettier를 함께 사용하기 위한 설정
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser" // typescript-eslint-parser를 사용하겠다는 의미
+  },
+  "plugins": ["@typescript-eslint", "prettier"], // eslint-plugin-prettier 플러그인 추가
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    }
+  ]
+}
